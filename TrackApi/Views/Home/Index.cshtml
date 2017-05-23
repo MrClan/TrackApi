@@ -1,0 +1,103 @@
+﻿@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <title>Google Maps Based Location Tracking</title>
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.4.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>PubNub Google Maps Test</h1>
+        <div id="map-canvas" style="width:600px;height:400px"></div>
+    </div>
+
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAOvKZ9ipthaLrA_VWP3FRjp656tstPy0E&callback=initialize"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            console.log('ready...');
+            $.get('http://mrclan-001-site1.etempurl.com/api/locations/50bb6c69-24a3-40d9-9566-ee5bba1889fa')
+              .done(function (data) { console.log(data); });
+
+
+            //var serviceUrl = 'http://mrclan-001-site1.etempurl.com/api/locations/50bb6c69-24a3-40d9-9566-ee5bba1889fa';
+
+            //function sendRequest() {
+            //    var method = 'GET';//$('#method').val();
+
+            //    $.ajax({
+            //        type: method,
+            //        url: serviceUrl
+            //    }).done(function (data) {
+            //        $('#value1').text(data);
+            //    }).error(function (jqXHR, textStatus, errorThrown) {
+            //        $('#value1').text(jqXHR.responseText || textStatus);
+            //    });
+            //}
+
+            //sendRequest();
+
+        });
+
+
+
+        //window.lat = 37.8199;
+        //window.lng = -122.4783;
+
+        //var map;
+        //var mark;
+        //var lineCoords = [];
+
+        //var initialize = function () {
+        //    map = new google.maps.Map(document.getElementById('map-canvas'), { center: { lat: lat, lng: lng }, zoom: 12 });
+        //    mark = new google.maps.Marker({ position: { lat: lat, lng: lng }, map: map });
+        //    lineCoords.push(new google.maps.LatLng(window.lat, window.lng));
+        //};
+
+        //window.initialize = initialize;
+
+        //var redraw = function (payload) {
+        //    lat = payload.message.lat;
+        //    lng = payload.message.lng;
+
+        //    map.setCenter({ lat: lat, lng: lng, alt: 0 });
+        //    mark.setPosition({ lat: lat, lng: lng, alt: 0 });
+        //    lineCoords.push(new google.maps.LatLng(lat, lng));
+
+        //    var lineCoordinatesPath = new google.maps.Polyline({
+        //        path: lineCoords,
+        //        geodesic: true,
+        //        strokeColor: '#2E10FF'
+        //    });
+
+        //    lineCoordinatesPath.setMap(map);
+        //};
+
+        //var pnChannel = "map-channel";
+
+        //var pubnub = new PubNub({
+        //    publishKey: 'pub-c-4a8fb30a-9898-488c-97ef-079791472040',
+        //    subscribeKey: 'sub-c-4063121a-3fa3-11e7-b730-0619f8945a4f'
+        //});
+
+        //pubnub.subscribe({ channels: [pnChannel] });
+        //pubnub.addListener({ message: redraw });
+
+        //setInterval(function () {
+        //    pubnub.publish({ channel: pnChannel, message: { lat: window.lat + 0.001, lng: window.lng + 0.01 } });
+        //}, 5000);
+    </script>
+
+
+</body>
+</html>
